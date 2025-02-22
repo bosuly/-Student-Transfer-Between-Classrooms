@@ -1,0 +1,55 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package student;
+import java.util.ArrayList;
+import java.util.List;
+/**
+ *
+ * @author USER
+ */
+public class classroom {
+   private String className;
+    private ArrayList<studentclass> students;
+
+   
+    public classroom(String className) {
+        this.className = className;
+        this.students = new ArrayList<>();
+    }
+
+   
+    public void addStudent(studentclass student) {
+        students.add(student);
+    }
+
+    
+    public void removeStudent(studentclass student) {
+        students.remove(student);
+    }
+
+  
+    public void displayStudents() {
+        System.out.println("Classroom: " + className);
+        if (students.isEmpty()) {
+            System.out.println("No students in this classroom.");
+        } else {
+            for (studentclass student : students) {
+                student.displayinfo();
+            }
+        }
+        System.out.println();
+    }
+
+    
+    public void transferStudent(studentclass student, classroom newClassroom) {
+        if (students.contains(student)) {
+            this.removeStudent(student);
+            newClassroom.addStudent(student);
+            System.out.println("transferred " + student.getname() + " (ID: " + student.getid() + ") from " + this.className + " to " + newClassroom.className);
+        } else {
+            System.out.println("student not found in " + this.className);
+        }
+    }
+}
