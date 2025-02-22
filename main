@@ -1,0 +1,48 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package student;
+
+/**
+ *
+ * @author USER
+ */
+public class Student {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        classroom classA = new classroom("Class A");
+        classroom classB = new classroom("Class B");
+
+        
+        studentclass student1 = new studentclass("daryl", 0001);
+        studentclass student2 = new studentclass("james", 0002);
+        studentclass student3 = new studentclass("rod", 0003);
+         studentclass student4 = new studentclass("lex", 0004);
+          studentclass student5 = new studentclass("uls", 0005);
+
+       
+        classA.addStudent(student1);
+        classA.addStudent(student2);
+        classA.addStudent(student3);
+        classB.addStudent(student4);
+        classB.addStudent(student5);
+
+
+        
+        System.out.println("Before Transfer:");
+        classA.displayStudents();
+        classB.displayStudents();
+
+      
+        classA.transferStudent(student2, classB);
+
+       
+        System.out.println("After Transfer:");
+        classA.displayStudents();
+        classB.displayStudents();
+    }
+}
